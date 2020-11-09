@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>HTML Media Capture Video Demo</title>
+	</head>
+	<body>
+		<input id="select" type="file" accept="video/*" capture="user" />
+		<video id="preview" />
+		<script>(() => {
+
+const selectElt = document.getElementById('select');
+const previewElt = document.getElementById('preview');
+
+selectElt.onchange = e => {
+	if (e.target.files.length < 1) {
+		return;
+	}
+	const file = e.target.files[0];
+	const url = URL.createObjectURL(file);
+	previewElt.src = url;
+};
+
+		})();</script>
+	</body>
+</html>
